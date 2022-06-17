@@ -8,7 +8,7 @@ public class Main {
         int counter = 0;
         for (Integer i : array) {
             for (Integer j : array) {
-                if (Objects.equals(i, j)) {
+                if (i.equals(j)) {
                     counter++;
                 }
             }
@@ -16,16 +16,18 @@ public class Main {
             counter = 0;
         }
         Integer max = Collections.max(results.values());
-        return results
+        List<Integer> maxValues = results
                 .entrySet()
                 .stream()
                 .filter(entry -> max.equals(entry.getValue()))
-                .map(Map.Entry::getKey).findFirst().get();
+                .map(Map.Entry::getKey).toList();
+
+        return Collections.min(maxValues);
     }
 
 
     public static void main(String[] args) {
-        Integer[] array = { 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6, 11 };
+        Integer[] array = { 1, 1, 1, 1, 2, 2, 2, 2, 4, 5, 6, 6, 6, 6, 6, 6, 6, 3, 3, 3, 3, 3, 3, 3, 11 };
         System.out.println(Arrays.toString(array));
         System.out.println(getMostRecurring(array));
     }
