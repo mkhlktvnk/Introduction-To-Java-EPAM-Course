@@ -3,7 +3,7 @@ package com.company;
 import java.util.*;
 
 public class Main {
-    public static int[][] generateRandomMatrix() {
+    public static int[][] generateMatrix() {
         Random random = new Random();
         int n = 4 + random.nextInt((10 - 4) / 2) * 2;
         int[][] matrix = new int[n][n];
@@ -25,7 +25,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int[][] matrix = generateRandomMatrix();
+        int[][] matrix = generateMatrix();
         printMatrix(matrix);
         System.out.println();
     }
